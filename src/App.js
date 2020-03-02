@@ -1,4 +1,8 @@
 import React from 'react';
+import ListOfQuotes from './components/ListOfQuotes';
+import QuoteCharacter from './components/QuoteCharacter';
+import QuoteSelection from './components/QuoteSelection';
+
 
 class App extends React.Component {
   
@@ -8,7 +12,9 @@ class App extends React.Component {
 
     return(
       <div>
-        Quotes
+        <ListOfQuotes/>
+        <QuoteCharacter/>
+        <QuoteSelection/>
       </div>
 
     );
