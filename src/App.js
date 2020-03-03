@@ -39,12 +39,22 @@ class App extends React.Component {
 
     };
 
+    showErrorMessage = () => {
+      const isError =  this.state.isError;
+
+      if(isError) {
+        return <p className="error">Error - {this.state.errorMessage}</p>
+      }
+
+    };
+
     render() {
 
       console.log('state:', this.state);
 
         return (
             <div>
+                {this.showErrorMessage()}
                 <ListOfQuotes quotes={this.state.quotes}/>
                 <QuoteCharacter/>
                 <QuoteSelection/>
