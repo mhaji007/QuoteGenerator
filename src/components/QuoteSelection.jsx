@@ -1,12 +1,19 @@
 import React from 'react';
 
-const QuoteSelection = ()=> {
+const QuoteSelection = (props)=> {
+
 
     return (
         <div>
-            <h2>
-                Quote Selection
-            </h2>
+            <p>
+                Get Quotes By:
+            </p>
+            <select name="numQuote" onChange={props.handleChange}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+            </select>
         </div>
     );
 

@@ -66,6 +66,35 @@ class App extends React.Component {
 
     }
 
+    handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        this.setState({
+            [name]:value
+        });
+
+        this.setState({isLoading: true});
+        API
+            .getRandomQuotes(value, 'Chuck', 'Norris')
+            .then((response) => {
+                //console.log('Data: ', response.data);
+                this.setState({quotes: response.data.value, isError: false, isLoading: false})
+            })
+            .catch((error) => {
+                this.setState({
+                    isError: true,
+                    isLoading: false,
+                    errorMessage: error.message || 'Failed fetching quotes'
+                });
+                const response = error
+                    .response
+                    console
+                    .log(response.data.errors)
+            });
+
+    };
+
     render() {
 
         console.log('State:', this.state);
@@ -75,7 +104,7 @@ class App extends React.Component {
                 {this.showErrorMessage()}
                 {this.showQuote()}
                 <QuoteCharacter/>
-                <QuoteSelection/>
+                <QuoteSelection handleChange={this.handleChange}/>
             </div>
 
         );
