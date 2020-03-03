@@ -8,8 +8,8 @@ const ListOfQuotes = (props)=> {
                 List of quotes
             </h2>
             
-        {props.quotes.map((quote) => ( 
-            <div>
+        {props.quotes.map((quote, index) => ( 
+            <div key={index}>
                 <p>Quote: {quote.joke}</p>
             </div>
             ))} 

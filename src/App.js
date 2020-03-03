@@ -4,6 +4,7 @@ import QuoteCharacter from './components/QuoteCharacter';
 import QuoteSelection from './components/QuoteSelection';
 
 import API from './utils/API';
+import './App.css';
 
 class App extends React.Component {
 
@@ -48,14 +49,25 @@ class App extends React.Component {
 
     };
 
+    showQuote = () => {
+        const isLoading = this.state.isLoading;
+
+        if (isLoading) {
+            return <p>Quotes loading...</p>
+        }
+        return <ListOfQuotes quotes={this.state.quotes}/>;
+
+
+    }
+
     render() {
 
-      console.log('state:', this.state);
+      console.log('State:', this.state);
 
         return (
             <div>
                 {this.showErrorMessage()}
-                <ListOfQuotes quotes={this.state.quotes}/>
+                {this.showQuote()}
                 <QuoteCharacter/>
                 <QuoteSelection/>
             </div>
