@@ -41,11 +41,11 @@ class App extends React.Component {
     };
 
     showErrorMessage = () => {
-      const isError =  this.state.isError;
+        const isError = this.state.isError;
 
-      if(isError) {
-        return <p className="error">Error - {this.state.errorMessage}</p>
-      }
+        if (isError) {
+            return <p className="error">Error - {this.state.errorMessage}</p>
+        }
 
     };
 
@@ -53,16 +53,22 @@ class App extends React.Component {
         const isLoading = this.state.isLoading;
 
         if (isLoading) {
-            return <p>Quotes loading...</p>
+            return (
+                <div class="ui segment" style={{paddingTop: 50}}>
+                    <div class="ui active dimmer" style={{backgroundColor:"	#A0A0A0"}}>
+                        <div class="ui text loader">Loading...</div>
+                    </div>
+                    <p></p>
+                </div>
+            );
         }
         return <ListOfQuotes quotes={this.state.quotes}/>;
-
 
     }
 
     render() {
 
-      console.log('State:', this.state);
+        console.log('State:', this.state);
 
         return (
             <div>
