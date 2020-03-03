@@ -7,17 +7,37 @@ import API from './utils/API';
 
 class App extends React.Component {
 
-  componentDidMount = () => {
-     API.getRandomQuotes(2,'Chuck','Norris')
-        .then(function(respond) {
-            console.log('Data: ', respond.data)
-        })
-        .catch(  (error) => {
-          const response = error.response
-          console.log(response.data.errors)
-        });
+    state = {
+        quotes: [],
+        firstName: 'Chuck',
+        lastName: 'Norris',
+        errorMessage: '',
+        numQuote: '',
+        isError: false,
+        isLoading: false
+    };
 
-};
+    componentDidMount = () => {
+        this.setState({isLoading: true});
+        API
+            .getRandomQuotes(2, 'Chuck', 'Norris')
+            .then((respond) => {
+                //console.log('Data: ', respond.data);
+                this.setState({quotes: respond.data.value, isError: false, isLoading: false})
+            })
+            .catch((error) => {
+                this.setState({
+                    isError: true,
+                    isLoading: false,
+                    errorMessage: error.message || 'Failed fetching quotes'
+                })
+                const response = error
+                    .response
+                    console
+                    .log(response.data.errors)
+            });
+
+    };
 
     render() {
 
