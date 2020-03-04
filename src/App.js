@@ -68,8 +68,11 @@ class App extends React.Component {
                 </div>
             );
         }
-        return <ListOfQuotes quotes={this.state.quotes}/>;
-
+        
+        if(this.state.quotes.length>0){
+            
+            return <ListOfQuotes quotes={this.state.quotes}/>;
+        }
     }
 
     handleChange = (event) => {
