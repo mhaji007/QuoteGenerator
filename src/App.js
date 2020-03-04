@@ -19,9 +19,16 @@ class App extends React.Component {
     };
 
     componentDidMount = () => {
+
+        this.getRandomQuotes(5,'Chuck', 'Norris')
+
+
+    };
+
+    getRandomQuotes = (num, firstName, lastName) => {
         this.setState({isLoading: true});
         API
-            .getRandomQuotes(2, 'Chuck', 'Norris')
+            .getRandomQuotes(num, firstName, lastName)
             .then((response) => {
                 //console.log('Data: ', response.data);
                 this.setState({quotes: response.data.value, isError: false, isLoading: false})
@@ -37,7 +44,6 @@ class App extends React.Component {
                     console
                     .log(response.data.errors)
             });
-
     };
 
     showErrorMessage = () => {
@@ -74,24 +80,7 @@ class App extends React.Component {
             [name]:value
         });
 
-        this.setState({isLoading: true});
-        API
-            .getRandomQuotes(value, 'Chuck', 'Norris')
-            .then((response) => {
-                //console.log('Data: ', response.data);
-                this.setState({quotes: response.data.value, isError: false, isLoading: false})
-            })
-            .catch((error) => {
-                this.setState({
-                    isError: true,
-                    isLoading: false,
-                    errorMessage: error.message || 'Failed fetching quotes'
-                });
-                const response = error
-                    .response
-                    console
-                    .log(response.data.errors)
-            });
+        this.getRandomQuotes(value,'Chuck', 'Norris')
 
     };
 
