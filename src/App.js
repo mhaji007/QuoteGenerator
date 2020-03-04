@@ -92,7 +92,7 @@ class App extends React.Component {
             <div>
                 {this.showErrorMessage()}
                 {this.showQuote()}
-                <QuoteCharacter/>
+                <QuoteCharacter handleChange={this.handleChange}/>
                 <QuoteSelection handleChange={this.handleChange}/>
             </div>
 
