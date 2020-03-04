@@ -13,15 +13,15 @@ class App extends React.Component {
         firstName: 'Chuck',
         lastName: 'Norris',
         errorMessage: '',
-        numQuote: '',
+        numQuote: 1,
         isError: false,
         isLoading: false
     };
 
     componentDidMount = () => {
 
-        this.getRandomQuotes(5,'Chuck', 'Norris')
-
+        const {numQuote, firstName, lastName} = this.state;
+        this.getRandomQuotes(numQuote, firstName, lastName);
 
     };
 
