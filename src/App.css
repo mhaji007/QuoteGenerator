@@ -1,3 +1,20 @@
+body {
+    background-color: aqua;
+    background-image: linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%);
+}
+
+.App {
+    width: 760px;
+    margin: 0 auto;
+}
+
+.App_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
 .error {
-  color:red;
+    color: red;
 }
