@@ -97,6 +97,7 @@ class App extends React.Component {
     event.preventDefault();
     const {numQuote,firstName,lastName} = this.state;
     this.getRandomQuotes(numQuote,firstName,lastName);
+    this.setState({isCharacterEnabled:false});
 
 
 
@@ -113,7 +114,10 @@ class App extends React.Component {
         
         if (isCharacterEnabled) {
             
-           return <QuoteCharacter handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+           return <QuoteCharacter handleChange={this.handleChange}
+            firstName={this.state.firstName}
+            lastName = {this.state.lastName}
+            handleSubmit={this.handleSubmit}/>
         }
         return <button onClick = {this.enableCharacterFeature}>Change character name</button>
     }
