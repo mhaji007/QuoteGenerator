@@ -8,7 +8,7 @@ const QuoteCharacter = (props)=> {
                 <input onChange={props.handleChange} name="firstName" placeholder="Enter first name ..." type="text"/>
             </div>
             <div className="form-control">
-                <input onChange={props.handleChange} name="firstName" placeholder="Enter first name ..." type="text"/>
+                <input onChange={props.handleChange} name="lastName" placeholder="Enter first name ..." type="text"/>
             </div>
             <button>Change Character</button>
         </form>
