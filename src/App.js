@@ -83,7 +83,21 @@ class App extends React.Component {
             [name]:value
         });
 
-        this.getRandomQuotes(value,'Chuck', 'Norris')
+        if(name==="numQuote"){
+            const {firstName,lastName} = this.state;
+            this.getRandomQuotes(value,firstName, lastName)
+
+        }
+    }
+
+    
+    handleSubmit = (event) =>{
+
+    event.preventDefault();
+    const {numQuote,firstName,lastName} = this.state;
+    this.getRandomQuotes(numQuote,firstName,lastName);
+
+
 
     };
 
@@ -95,7 +109,7 @@ class App extends React.Component {
             <div>
                 {this.showErrorMessage()}
                 {this.showQuote()}
-                <QuoteCharacter handleChange={this.handleChange}/>
+                <QuoteCharacter handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
                 <QuoteSelection handleChange={this.handleChange}/>
             </div>
 

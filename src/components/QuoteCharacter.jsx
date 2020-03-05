@@ -3,7 +3,7 @@ import React from 'react';
 const QuoteCharacter = (props)=> {
 
     return (
-        <form action>
+        <form onSubmit={props.handleSubmit}>
             <div className="form-control">
                 <input onChange={props.handleChange} name="firstName" placeholder="Enter first name ..." type="text"/>
             </div>
