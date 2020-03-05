@@ -15,7 +15,8 @@ class App extends React.Component {
         errorMessage: '',
         numQuote: 1,
         isError: false,
-        isLoading: false
+        isLoading: false,
+        isCharacterEnabled: false
     };
 
     componentDidMount = () => {
@@ -101,6 +102,21 @@ class App extends React.Component {
 
     };
 
+    enableCharacterFeature = () => {
+
+        this.setState({isCharacterEnabled: !this.state.isCharacterEnabled})
+
+    };    
+    
+    showCharacter = () =>{
+        const isCharacterEnabled = this.state.isCharacterEnabled;
+        
+        if (isCharacterEnabled) {
+            
+           return <QuoteCharacter handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        }
+        return <button onClick = {this.enableCharacterFeature}>Change character name</button>
+    }
     render() {
 
         console.log('State:', this.state);
@@ -109,7 +125,7 @@ class App extends React.Component {
             <div>
                 {this.showErrorMessage()}
                 {this.showQuote()}
-                <QuoteCharacter handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+                {this.showCharacter()}
                 <QuoteSelection handleChange={this.handleChange}/>
             </div>
 
